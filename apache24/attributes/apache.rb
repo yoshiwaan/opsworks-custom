@@ -78,6 +78,7 @@ else
 end
 
 # General settings
+default[:apache][:mpm_type] = 'mpm_prefork'
 default[:apache][:listen_ports] = [ '80','443' ]
 default[:apache][:contact] = 'ops@example.com'
 default[:apache][:log_level] = 'info'

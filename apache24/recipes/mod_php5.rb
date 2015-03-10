@@ -37,6 +37,7 @@ when 'rhel'
   # replace with debian config
   template File.join(node[:apache][:dir], 'mods-available', 'php5.conf') do
     source 'mods/php5.conf.erb'
+    manage_symlink_source true
     notifies :restart, "service[apache2]"
   end
 end

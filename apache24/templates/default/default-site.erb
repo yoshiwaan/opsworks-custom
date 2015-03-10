@@ -12,8 +12,7 @@
   <Directory /var/www/>
     Options -Indexes FollowSymLinks MultiViews
     AllowOverride None
-    Order allow,deny
-    allow from all
+    Require all granted
     # This directive allows us to have apache2's default start page
     # in /apache2-default/, but still have / go to the right place
     #RedirectMatch ^/$ /apache2-default/
@@ -23,14 +22,12 @@
   <Directory "/usr/lib/cgi-bin">
     AllowOverride None
     Options ExecCGI -MultiViews +SymLinksIfOwnerMatch
-    Order allow,deny
-    Allow from all
+    Require all granted
   </Directory>
 
   <Location /server-status>
     SetHandler server-status
-    Order Deny,Allow
-    Deny from all
+    Require all denied
     Allow from 127.0.0.0/255.0.0.0 ::1/128
   </Location>
 

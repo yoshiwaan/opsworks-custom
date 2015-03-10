@@ -220,12 +220,20 @@ template default_site_config do
   notifies :run, resources(:bash => 'logdir_existence_and_restart_apache2')
 end
 
+# Apache 2.4 requires MPM setting
+if node[:apache][:mpm_type] == 'mpm_prefork'
+  include_recipe 'apache24::mod_mpm_worker'
+else if
+  include_recipe 'apache24::mod_mpm_event'
+else
+  include_recipe 'apache24::mod_mpm_prefork'
+end
 include_recipe 'apache24::mod_status'
 include_recipe 'apache24::mod_headers'
 include_recipe 'apache24::mod_alias'
 include_recipe 'apache24::mod_auth_basic'
 include_recipe 'apache24::mod_authn_file'
-include_recipe 'apache24::mod_authz_default' if node[:apache][:version] == '2.4'
+include_recipe 'apache24::mod_authz_default'
 include_recipe 'apache24::mod_authz_groupfile'
 include_recipe 'apache24::mod_authz_host'
 include_recipe 'apache24::mod_authz_user'
@@ -239,6 +247,9 @@ include_recipe 'apache24::mod_log_config' if platform_family?('rhel')
 include_recipe 'apache24::mod_ssl'
 include_recipe 'apache24::mod_expires'
 include_recipe 'apache24::logrotate'
+include_recipe 'apache24::unixd' # For User statement
+include_recipe 'apache24::mod_authz_core' # For Require statement
+include_recipe 'apache24::mod_socache_shmcb' # For mod_ssl shmcb caching
 
 bash 'logdir_existence_and_restart_apache2' do
   action :run

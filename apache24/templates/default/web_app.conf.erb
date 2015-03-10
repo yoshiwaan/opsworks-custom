@@ -9,8 +9,7 @@
   <Directory <%= @params[:docroot] %>>
     Options FollowSymLinks
     AllowOverride All
-    Order allow,deny
-    Allow from all
+    Require all granted
   </Directory>
 
   <Directory />
@@ -20,10 +19,7 @@
 
   <Location /server-status>
     SetHandler server-status
-
-    Order Deny,Allow
-    Deny from all
-    Allow from 127.0.0.1
+    Require host 127.0.0.1
   </Location>
 
   LogLevel <%= node[:apache][:log_level] %>

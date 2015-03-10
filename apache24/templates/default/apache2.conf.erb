@@ -7,11 +7,13 @@ ServerRoot "<%= node[:apache][:dir] %>"
 
 #
 # The accept serialization lock file MUST BE STORED ON A LOCAL DISK.
+# Using a mutex for apache 2.4 for speed as the LockFile statement is
+# under the Mutex statement anyway in apache 2.4
 #
 <% if node[:platform] == "debian" || node[:platform] == "ubuntu" -%>
 LockFile /var/lock/apache2/accept.lock
 <% else %>
-LockFile logs/accept.lock
+Mutex sem
 <% end -%>
 
 #
@@ -95,8 +97,7 @@ AccessFileName .htaccess
 # viewed by Web clients.
 #
 <Files ~ "^\.ht">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 
 #
@@ -192,8 +193,7 @@ LogFormat "%v %A %a %u %{%Y-%m-%dT%H:%M:%S}t %c %s %>s %B %D cookie \"Referer\" 
 #        Options IncludesNoExec
 #        AddOutputFilter Includes html
 #        AddHandler type-map var
-#        Order allow,deny
-#        Allow from all
+#        Require all granted
 #        LanguagePriority en cs de es fr it nl sv pt-br ro
 #        ForceLanguagePriority Prefer Fallback
 #    </Directory>
