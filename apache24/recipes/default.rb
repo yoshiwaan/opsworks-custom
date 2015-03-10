@@ -248,7 +248,7 @@ include_recipe 'apache24::mod_log_config' if platform_family?('rhel')
 include_recipe 'apache24::mod_ssl'
 include_recipe 'apache24::mod_expires'
 include_recipe 'apache24::logrotate'
-include_recipe 'apache24::unixd' # For User statement
+include_recipe 'apache24::mod_unixd' # For User statement
 include_recipe 'apache24::mod_authz_core' # For Require statement
 include_recipe 'apache24::mod_socache_shmcb' # For mod_ssl shmcb caching
 
