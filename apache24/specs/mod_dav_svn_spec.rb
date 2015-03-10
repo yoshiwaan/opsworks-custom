@@ -16,7 +16,7 @@ describe_recipe 'apache24::mod_dav_svn' do
   it 'installs svn dependencies' do
     case node[:platform_family]
     when 'rhel'
-      package('mod_dav_svn').must_be_installed
+      package('mod24_dav_svn').must_be_installed
     when 'debian'
       package('libapache2-svn').must_be_installed
     end

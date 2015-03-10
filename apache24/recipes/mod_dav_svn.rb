@@ -19,7 +19,7 @@
 
 case node[:platform_family]
 when 'rhel'
-  package 'mod_dav_svn'
+  package 'mod24_dav_svn'
 when 'debian'
   package 'libapache2-svn'
 end
