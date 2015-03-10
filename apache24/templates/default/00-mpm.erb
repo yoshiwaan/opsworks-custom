@@ -1,3 +1,0 @@
-<% # Doesn't look like this is needed as the conf.modules.d directory doesn't seem %>
-<% # To be used when using the debian management method %>
-LoadModule <%= node[:apache][:mpm_mode] %>_module modules/mod_<%= node[:apache][:mpm_mode] %>.so

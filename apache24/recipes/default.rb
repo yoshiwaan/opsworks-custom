@@ -221,7 +221,7 @@ template default_site_config do
 end
 
 # Apache 2.4 requires MPM setting
-if node[:apache][:mpm_type] == 'mpm_prefork'
+if node[:apache][:mpm_type] == 'mpm_worker'
   include_recipe 'apache24::mod_mpm_worker'
 elsif node[:apache][:mpm_type] == 'mpm_event'
   include_recipe 'apache24::mod_mpm_event'
