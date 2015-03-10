@@ -17,6 +17,11 @@
 # limitations under the License.
 #
 
+# remove stock config
+file File.join(node[:apache][:dir], 'conf.d', 'autoindex.conf') do
+  action :delete
+end
+
 apache_module "autoindex" do
   conf true
 end
