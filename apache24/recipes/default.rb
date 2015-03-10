@@ -223,11 +223,12 @@ end
 # Apache 2.4 requires MPM setting
 if node[:apache][:mpm_type] == 'mpm_prefork'
   include_recipe 'apache24::mod_mpm_worker'
-else if
+elsif node[:apache][:mpm_type] == 'mpm_event'
   include_recipe 'apache24::mod_mpm_event'
 else
   include_recipe 'apache24::mod_mpm_prefork'
 end
+
 include_recipe 'apache24::mod_status'
 include_recipe 'apache24::mod_headers'
 include_recipe 'apache24::mod_alias'
