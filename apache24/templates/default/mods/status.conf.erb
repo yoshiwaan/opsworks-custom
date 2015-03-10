@@ -8,9 +8,7 @@
 <Location /server-status>
     SetHandler server-status
     Order deny,allow
-    Deny from all
-    Allow from localhost ip6-localhost
-#    Allow from .example.com
+    Require host localhost ip6-localhost
 </Location>
 
 ExtendedStatus On
