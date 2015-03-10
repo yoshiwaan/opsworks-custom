@@ -1,6 +1,7 @@
 #This file generated via template by Chef.
 <% node[:apache][:listen_ports].each do |port| -%>
 Listen <%= port %>
-NameVirtualHost *:<%= port %>
+# Not useds in apache 2.4+
+# NameVirtualHost *:<%= port %>
 
 <% end -%>
