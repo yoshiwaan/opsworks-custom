@@ -231,6 +231,7 @@ end
 
 include_recipe 'apache24::mod_status'
 include_recipe 'apache24::mod_headers'
+include_recipe 'apache24::mod_filter'
 include_recipe 'apache24::mod_alias'
 include_recipe 'apache24::mod_auth_basic'
 include_recipe 'apache24::mod_authn_file'
