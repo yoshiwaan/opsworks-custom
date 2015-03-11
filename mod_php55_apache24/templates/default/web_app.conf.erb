@@ -8,18 +8,15 @@
   <Directory <%= @params[:docroot] %>>
     Options FollowSymLinks
     AllowOverride All
-    Order allow,deny
-    Allow from all
+    Require all granted
   </Directory>
 
   <Directory ~ "\.svn">
-    Order allow,deny
-    Deny from all
+    Require all denied
   </Directory>
 
   <Directory ~ "\.git">
-    Order allow,deny
-    Deny from all
+    Require all denied
   </Directory>
 
   LogLevel <%= node[:apache][:log_level] %>
@@ -73,18 +70,15 @@
   <Directory <%= @params[:docroot] %>>
     Options FollowSymLinks
     AllowOverride All
-    Order allow,deny
-    Allow from all
+    Require all granted
   </Directory>
 
   <Directory ~ "\.svn">
-    Order allow,deny
-    Deny from all
+    Require all denied
   </Directory>
 
   <Directory ~ "\.git">
-    Order allow,deny
-    Deny from all
+    Require all denied
   </Directory>
 
   LogLevel <%= node[:apache][:log_level] %>
