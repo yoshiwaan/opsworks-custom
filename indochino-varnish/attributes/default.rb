@@ -1,1 +1,1 @@
-normal['platform_version'] = 'el6'
+normal['platform_version'] = '6'
