@@ -1,5 +1,5 @@
 source "https://supermarket.chef.io"
 
-cookbook "indochino-php", git: "git://github.com/yoshiwaan/indochino-custom.git", rel: "indochino-php"
+cookbook "indochino-php", git: "git://github.com/yoshiwaan/opsworks-custom.git", rel: "indochino-php"
 
 metadata
