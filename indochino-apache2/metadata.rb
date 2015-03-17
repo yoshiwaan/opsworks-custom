@@ -4,6 +4,7 @@ maintainer_email 'YOUR_EMAIL'
 license          'All rights reserved'
 description      'Installs/Configures indochino-apache2'
 long_description 'Installs/Configures indochino-apache2'
-version          '0.1.1'
+version          '0.1.2'
 
 depends 'apache2'
+depends 'indochino-php'

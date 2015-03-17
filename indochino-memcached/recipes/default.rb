@@ -1,11 +1,9 @@
 #
-# Cookbook Name:: indochino-apache2
+# Cookbook Name:: indochino-memcached
 # Recipe:: default
 #
 # Copyright (C) 2015 YOUR_NAME
 #
 # All rights reserved - Do Not Redistribute
 #
-
-include_recipe 'apache2'
-include_recipe 'apache2::mod_php'
+include_recipe 'memcached'
