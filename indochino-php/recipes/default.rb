@@ -7,4 +7,4 @@
 # All rights reserved - Do Not Redistribute
 #
 include_recipe 'php'
-include_recipe '#{cookbook_name}::module_mysqlnd'
+include_recipe "#{cookbook_name}::module_mysqlnd"

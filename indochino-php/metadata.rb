@@ -4,7 +4,7 @@ maintainer_email 'YOUR_EMAIL'
 license          'All rights reserved'
 description      'Installs/Configures indochino-php'
 long_description 'Installs/Configures indochino-php'
-version          '0.1.1'
+version          '0.1.2'
 
 recipe 'module_mysqlnd', 'Install php55-mysqlnd package'
 
