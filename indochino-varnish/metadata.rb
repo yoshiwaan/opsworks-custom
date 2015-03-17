@@ -6,5 +6,4 @@ description      'Installs/Configures indochino-varnish'
 long_description 'Installs/Configures indochino-varnish'
 version          '0.1.10'
 
-# depends 'varnish', '< 1.2.0'
-depends 'varnish'
+depends 'varnish', '< 1.2.0'
